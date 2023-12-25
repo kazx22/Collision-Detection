@@ -1,0 +1,23 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(498,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  app.cpp
+  BlobDemo.cpp
+C:\University\Object Oriented Programming\Submission\src\BlobDemo.cpp(22,49): warning C4305: 'argument': truncation from 'double' to 'const float'
+C:\University\Object Oriented Programming\Submission\src\BlobDemo.cpp(81,31): warning C4018: '<': signed/unsigned mismatch
+C:\University\Object Oriented Programming\Submission\src\BlobDemo.cpp(82,39): warning C4018: '<': signed/unsigned mismatch
+C:\University\Object Oriented Programming\Submission\src\BlobDemo.cpp(251,32): warning C4305: 'argument': truncation from 'double' to 'const float'
+C:\University\Object Oriented Programming\Submission\src\BlobDemo.cpp(281,28): warning C4154: deletion of an array expression; conversion to pointer supplied
+C:\University\Object Oriented Programming\Submission\src\BlobDemo.cpp(325,24): warning C4305: 'initializing': truncation from 'double' to 'float'
+  main.cpp
+  particle.cpp
+C:\University\Object Oriented Programming\Submission\include\coreMath.h(143,24): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\University\Object Oriented Programming\Submission\src\particle.cpp(25,17): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\University\Object Oriented Programming\Submission\src\particle.cpp(40,23): warning C4056: overflow in floating-point constant arithmetic
+  pcontacts.cpp
+C:\University\Object Oriented Programming\Submission\include\coreMath.h(143,24): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\University\Object Oriented Programming\Submission\src\pcontacts.cpp(86,28): warning C4056: overflow in floating-point constant arithmetic
+  pworld.cpp
+C:\University\Object Oriented Programming\Submission\include\coreMath.h(143,24): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  LINK : ..\Debug\Sphere.exe not found or not built by the last incremental link; performing full link
+  Sphere.vcxproj -> C:\University\Object Oriented Programming\Submission\Debug\Sphere.exe
