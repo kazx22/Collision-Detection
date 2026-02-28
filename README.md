@@ -1,210 +1,158 @@
-Collision Detection using Particle Physics (Blob Demo)
+# Collision Detection using Spatial Partitioning (C++ Physics Simulation)
 
-This project demonstrates a 2D particle collision detection and response system built using C++ and OpenGL (GLUT). The simulation creates multiple moving particles ("blobs") that interact with each other and with static platforms inside a bounded physics world.
+A 2D particle physics simulation demonstrating **collision detection optimisation using spatial partitioning** compared against a traditional **brute force approach**.
+
+Built using **C++ and OpenGL (GLUT)**.
 
 Repository:
 https://github.com/kazx22/Collision-Detection
 
-Overview
+---
 
-The simulation models a particle-based physics environment where:
+## Project Overview
 
-Circular particles move under gravity
+This project simulates multiple moving particles ("blobs") inside a physics world where:
 
-Particle–particle collisions are detected and resolved
+- Particles move under gravity
+- Particle–particle collisions occur
+- Particles collide with static platforms
+- Collision contacts are resolved using a physics engine
 
-Particles collide with static platforms
+The main goal of this project is to explore **efficient collision detection techniques**.
 
-A physics engine handles contact generation and penetration resolution
+---
 
-The project explores improving collision detection performance using spatial partitioning compared with a traditional brute force approach.
+## Collision Detection Approaches
 
-Key Features
+### 1. Quadrant-Based Spatial Partitioning (Optimised)
 
-Real-time particle physics simulation
+The simulation space is divided into four regions:
 
-Particle-to-particle collision detection
+Top Left	Top Right
+Bottom Left	Bottom Right
 
-Platform collision handling
+Particles are assigned to quadrants based on their position.
 
-Gravity and damping simulation
+Collision checks are performed only between particles inside the same region.
 
-OpenGL visualization
+This significantly reduces unnecessary comparisons.
 
-Quadrant-based spatial partitioning
+#### Benefits
 
-Brute force collision detection for comparison
+- Faster collision detection
+- Reduced computation cost
+- Better scalability with more particles
 
-Particle System
+---
 
-Each blob particle contains:
+### 2. Brute Force Collision Detection (Reference)
 
-Position
+A brute force implementation is included in the source code as a commented section.
 
-Velocity
+This method checks every particle against every other particle.
 
-Acceleration
+Example logic:
 
-Radius
-
-Mass
-
-Damping
-
-Particles are managed and updated through a physics world (ParticleWorld).
-
-Platform Collision
-
-Platforms are implemented as 2D line segments.
-
-They act as static collision surfaces and generate contacts when particles intersect with them.
-
-Collision handling includes:
-
-Endpoint collision detection
-
-Projection-based line collision detection
-
-Collision Detection Methods
-
-This project includes two different collision detection approaches.
-
-Spatial Partitioning (Quadrant-Based Detection)
-
-The simulation space is divided into four quadrants:
-
-Top Left     | Top Right
--------------|-----------
-Bottom Left  | Bottom Right
-
-Particles are assigned to quadrants depending on their position during every update step.
-
-Collision checks are only performed between particles inside the same quadrant.
-
-Advantages
-
-Reduces unnecessary collision checks
-
-Improves performance
-
-Scales better as particle count increases
-
-Instead of checking every particle against all others, collisions are limited to local regions.
-
-Quadrants are rebuilt every frame after particle movement.
-
-Brute Force Collision Detection
-
-A brute force implementation is also included in the source code as a commented reference.
-
-This method checks collisions between every possible particle pair:
 
 for each particle i
-    for each particle j
-Advantages
+for each particle j
 
-Simple implementation
 
-Always detects collisions correctly
+#### Drawbacks
 
-Disadvantages
+- O(N²) complexity
+- Performance decreases as particle count increases
 
-O(N²) computational complexity
+This version is kept for comparison and learning purposes.
 
-Performance decreases rapidly with more particles
+---
 
-This version is kept for educational comparison with the optimized spatial partitioning method.
+## Physics Simulation
 
-Physics Simulation Flow
+Each simulation frame performs:
 
-Each frame performs the following steps:
+1. Physics update
+2. Particle integration
+3. Quadrant reassignment
+4. Collision detection
+5. Contact resolution
+6. Rendering
 
-Physics update
+---
 
-Particle position integration
+## Features
 
-Quadrant reassignment
+- Particle physics simulation
+- Real-time collision detection
+- Platform collision handling
+- Gravity and damping effects
+- Spatial partitioning optimisation
+- OpenGL visualisation
 
-Collision contact generation
+---
 
-Collision resolution
+## Technologies Used
 
-Rendering using OpenGL
+- C++
+- OpenGL
+- GLUT
+- Custom Physics Engine
+- Vector Mathematics
 
-Visualization
+---
 
-Rendering is done using:
+## Core Components
 
-OpenGL
+Main classes used in the project:
 
-GLUT
+- Particle
+- ParticleWorld
+- ParticleContact
+- ParticleCollision
+- Platform
+- BlobDemo
 
-Particles are rendered as spheres with different colors, while platforms are rendered as line segments.
+---
 
-Technologies Used
-
-C++
-
-OpenGL
-
-GLUT
-
-Custom Physics Engine
-
-Vector Mathematics
-
-Main Classes
-
-Particle
-
-ParticleWorld
-
-ParticleContact
-
-ParticleCollision
-
-Platform
-
-BlobDemo
-
-How to Run
+## How to Build
 
 Requirements:
 
-C++ Compiler
-
-OpenGL
-
-GLUT
+- C++ Compiler
+- OpenGL
+- GLUT
 
 Example compilation:
 
+```bash
 g++ main.cpp -lglut -lGL -lGLU
-Learning Objectives
+Learning Goals
 
 This project explores:
 
 Collision detection algorithms
 
-Spatial partitioning optimization
+Spatial optimisation techniques
 
-Physics-based simulations
+Real-time simulation systems
 
-Real-time graphics programming
+Physics-based programming
 
 Future Improvements
 
-Possible extensions include:
+Possible future extensions:
 
 QuadTree spatial partitioning
 
-Broad-phase and narrow-phase collision systems
+Broad-phase and narrow-phase detection
+
+3D collision systems
 
 GPU acceleration
-
-3D collision simulation
 
 Author
 
 Kazi Alif
+
+GitHub:
 https://github.com/kazx22
